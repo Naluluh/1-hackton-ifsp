@@ -21,11 +21,6 @@ func shoot_at_player() -> void:
 		return
 	
 	get_parent().add_child(bullet_node)
-	# Previsão de mira (Modo Difícil)
-	var player_velocity = player.velocity if "velocity" in player else Vector2.ZERO
-	var distance = global_position.distance_to(player.global_position)
-	
-	var time_to_target = distance / bullet_speed
-	var predicted_position = player.global_position + (player_velocity * time_to_target)
+	var predicted_position = player.global_position
 	var dir = (predicted_position - global_position).normalized()
 	bullet_node.fire(global_position, dir, bullet_speed)

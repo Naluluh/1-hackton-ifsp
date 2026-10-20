@@ -4,16 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://dt00cpl8ebp1w" path="res://sprites/cenarios/menu_selecao/chao.png" id="2_i65fa"]
 [ext_resource type="Texture2D" uid="uid://6nvyf57fi8oi" path="res://icon.svg" id="2_nidl1"]
 [ext_resource type="PackedScene" uid="uid://dxpq5xllof0vd" path="res://cenas/objs/radio.tscn" id="3_pd12y"]
+[ext_resource type="PackedScene" uid="uid://dm7ofbvvtib2b" path="res://cenas/objs/marie.tscn" id="3_rhvpd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xkc6u"]
 size = Vector2(4867.5, 257.15625)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xsmad"]
 size = Vector2(95.25, 522)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uy03w"]
-radius = 58.0
-height = 170.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i4whw"]
 size = Vector2(121, 798)
@@ -25,6 +22,9 @@ size = Vector2(125, 862)
 size = Vector2(90, 278.5)
 
 [node name="MarieCurie" type="Node2D" unique_id=1136361142]
+
+[node name="Marie" parent="." unique_id=89439369 instance=ExtResource("3_rhvpd")]
+position = Vector2(572, 482)
 
 [node name="Obj_Player" parent="." unique_id=730524518 instance=ExtResource("1_n72ej")]
 position = Vector2(131, 389)
@@ -52,6 +52,21 @@ position = Vector2(1853.25, 150.42188)
 shape = SubResource("RectangleShape2D_xkc6u")
 debug_color = Color(0.3405413, 0.6216379, 3.85046e-07, 0.41960785)
 
+[node name="teto" type="StaticBody2D" parent="." unique_id=1371910288 groups=["solid"]]
+position = Vector2(516, -811)
+
+[node name="Area2D" type="Area2D" parent="teto" unique_id=1967215821 groups=["solid"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teto/Area2D" unique_id=1941563474]
+position = Vector2(1853.25, 150.42188)
+shape = SubResource("RectangleShape2D_xkc6u")
+debug_color = Color(0.3405413, 0.6216379, 3.85046e-07, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="teto" unique_id=1634910087]
+position = Vector2(1853.25, 150.42188)
+shape = SubResource("RectangleShape2D_xkc6u")
+debug_color = Color(0.3405413, 0.6216379, 3.85046e-07, 0.41960785)
+
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=920547330]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2" unique_id=667790968]
@@ -63,17 +78,6 @@ shape = SubResource("RectangleShape2D_xsmad")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D2/Area2D" unique_id=439913441]
 position = Vector2(-37, 302)
 shape = SubResource("RectangleShape2D_xsmad")
-
-[node name="NPC" type="CharacterBody2D" parent="." unique_id=1133963343]
-position = Vector2(576, 466)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC" unique_id=1339251489]
-shape = SubResource("CapsuleShape2D_uy03w")
-disabled = true
-debug_color = Color(0, 0.5552909, 0.9061601, 0.41960785)
-
-[node name="Sprite2D" type="Sprite2D" parent="NPC" unique_id=431355673]
-texture = ExtResource("2_nidl1")
 
 [node name="Coliseu" type="StaticBody2D" parent="." unique_id=1934835045]
 
@@ -98,6 +102,18 @@ scale = Vector2(1, 6.75)
 texture = ExtResource("2_nidl1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Coliseu/Parede1" unique_id=2020749402]
+position = Vector2(0.125, -146)
+shape = SubResource("RectangleShape2D_s5wex")
+
+[node name="Parede3" type="Area2D" parent="Coliseu" unique_id=1918556122 groups=["solid"]]
+position = Vector2(1616.375, 67)
+
+[node name="Sprite2D" type="Sprite2D" parent="Coliseu/Parede3" unique_id=1569576830]
+position = Vector2(0, -144.00003)
+scale = Vector2(1, 6.75)
+texture = ExtResource("2_nidl1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coliseu/Parede3" unique_id=1890276718]
 position = Vector2(0.125, -146)
 shape = SubResource("RectangleShape2D_s5wex")
 
