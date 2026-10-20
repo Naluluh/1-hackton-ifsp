@@ -18,11 +18,12 @@ func _process(delta: float) -> void:
 	var player = get_tree().get_first_node_in_group("player")
 	if player and global_position.distance_to(player.global_position) < 25.0:
 		print("O jogador foi atingido!")
-		player.queue_free()
+		player.game_over()
 		queue_free()
 
-func fire(start_pos: Vector2, target_direction: Vector2) -> void:
+func fire(start_pos: Vector2, target_direction: Vector2, new_speed: float = 700.0) -> void:
 	global_position = start_pos
 	direction = target_direction
 	active = true
 	visible = true
+	speed = new_speed

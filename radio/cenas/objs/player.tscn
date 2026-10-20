@@ -18,5 +18,8 @@ debug_color = Color(0, 0.5552909, 0.9061601, 0.41960785)
 texture = ExtResource("2_uqb2a")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=965776304]
-position = Vector2(420, -115)
 zoom = Vector2(0.67, 0.67)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_left_margin = 0.05
+drag_right_margin = 0.05

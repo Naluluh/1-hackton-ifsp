@@ -20,19 +20,21 @@ size = Vector2(90, 278.5)
 [node name="MarieCurie" type="Node2D" unique_id=1136361142]
 
 [node name="Obj_Player" parent="." unique_id=730524518 instance=ExtResource("1_n72ej")]
-position = Vector2(154, 426)
+position = Vector2(131, 389)
 limit_left = 0
+limit_right = 3285
+limit_bottom = 600
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1513629079]
+[node name="chao" type="StaticBody2D" parent="." unique_id=1513629079]
 position = Vector2(569, 526)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2061792151]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chao" unique_id=2061792151]
 position = Vector2(1853.25, 150.42188)
 shape = SubResource("RectangleShape2D_xkc6u")
 debug_color = Color(0.3405413, 0.6216379, 3.85046e-07, 0.41960785)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1651027437]
-position = Vector2(1839.625, 159.99998)
+[node name="Sprite2D" type="Sprite2D" parent="chao" unique_id=1651027437]
+position = Vector2(1840, 170.99998)
 scale = Vector2(37.75586, 2.0156245)
 texture = ExtResource("2_nidl1")
 
@@ -86,3 +88,4 @@ texture = ExtResource("2_nidl1")
 
 [node name="Radio" parent="." unique_id=368011282 instance=ExtResource("3_pd12y")]
 position = Vector2(2417, -18)
+bullet_speed = 500.0
