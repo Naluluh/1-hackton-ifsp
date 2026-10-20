@@ -1,12 +1,8 @@
 [gd_scene format=3 uid="uid://b3ugtwod1qmdi"]
 
-[ext_resource type="Script" uid="uid://brifju7qypwy1" path="res://Cena/scripts/player.gd" id="1_xsmad"]
-[ext_resource type="Texture2D" uid="uid://6nvyf57fi8oi" path="res://icon.svg" id="2_bitc8"]
-[ext_resource type="Script" uid="uid://djfcljgdmim3w" path="res://Cena/bullet.gd" id="3_bitc8"]
-[ext_resource type="Script" uid="uid://y0qxx7r1vcy2" path="res://Cena/radio.gd" id="3_uy03w"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uy03w"]
-size = Vector2(122, 115)
+[ext_resource type="PackedScene" uid="uid://whhcv21idyg6" path="res://cenas/objs/player.tscn" id="1_n72ej"]
+[ext_resource type="Texture2D" uid="uid://6nvyf57fi8oi" path="res://icon.svg" id="2_nidl1"]
+[ext_resource type="PackedScene" uid="uid://dxpq5xllof0vd" path="res://cenas/objs/radio.tscn" id="3_pd12y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xkc6u"]
 size = Vector2(4867.5, 257.15625)
@@ -21,25 +17,11 @@ height = 170.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hp6nn"]
 size = Vector2(90, 278.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_quvid"]
-
 [node name="MarieCurie" type="Node2D" unique_id=1136361142]
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=1801379312 groups=["player"]]
+[node name="Obj_Player" parent="." unique_id=730524518 instance=ExtResource("1_n72ej")]
 position = Vector2(154, 426)
-script = ExtResource("1_xsmad")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1245588414]
-position = Vector2(2, -0.5)
-shape = SubResource("RectangleShape2D_uy03w")
-debug_color = Color(0, 0.5552909, 0.9061601, 0.41960785)
-
-[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1975702437]
-texture = ExtResource("2_bitc8")
-
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1360954299]
-position = Vector2(420, -115)
-zoom = Vector2(0.67, 0.67)
+limit_left = 0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1513629079]
 position = Vector2(569, 526)
@@ -52,7 +34,7 @@ debug_color = Color(0.3405413, 0.6216379, 3.85046e-07, 0.41960785)
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1651027437]
 position = Vector2(1839.625, 159.99998)
 scale = Vector2(37.75586, 2.0156245)
-texture = ExtResource("2_bitc8")
+texture = ExtResource("2_nidl1")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=920547330]
 
@@ -69,7 +51,7 @@ disabled = true
 debug_color = Color(0, 0.5552909, 0.9061601, 0.41960785)
 
 [node name="Sprite2D" type="Sprite2D" parent="NPC" unique_id=431355673]
-texture = ExtResource("2_bitc8")
+texture = ExtResource("2_nidl1")
 
 [node name="Coliseu" type="StaticBody2D" parent="." unique_id=1934835045]
 
@@ -81,7 +63,7 @@ debug_color = Color(0.9991639, 0, 0.18605098, 1)
 [node name="Sprite2D" type="Sprite2D" parent="Coliseu/Parede2" unique_id=1886771076]
 position = Vector2(0, -153.00002)
 scale = Vector2(1, 6.3125)
-texture = ExtResource("2_bitc8")
+texture = ExtResource("2_nidl1")
 
 [node name="Parede1" type="CollisionShape2D" parent="Coliseu" unique_id=2130492206]
 position = Vector2(1616.375, 67)
@@ -91,7 +73,7 @@ debug_color = Color(0.99215686, 0, 0.27058825, 1)
 [node name="Sprite2D" type="Sprite2D" parent="Coliseu/Parede1" unique_id=1429652626]
 position = Vector2(0, -144.00003)
 scale = Vector2(1, 6.75)
-texture = ExtResource("2_bitc8")
+texture = ExtResource("2_nidl1")
 
 [node name="Portao" type="CollisionShape2D" parent="Coliseu" unique_id=1794833334]
 position = Vector2(3285, 434)
@@ -100,26 +82,7 @@ debug_color = Color(0, 0.6431373, 0.30588236, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Coliseu/Portao" unique_id=1178040117]
 scale = Vector2(1, 2.203125)
-texture = ExtResource("2_bitc8")
+texture = ExtResource("2_nidl1")
 
-[node name="Radio" type="CharacterBody2D" parent="." unique_id=1421137189]
+[node name="Radio" parent="." unique_id=368011282 instance=ExtResource("3_pd12y")]
 position = Vector2(2417, -18)
-script = ExtResource("3_uy03w")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Radio" unique_id=997616717]
-shape = SubResource("CapsuleShape2D_uy03w")
-disabled = true
-debug_color = Color(0, 0.5552909, 0.9061601, 0.41960785)
-
-[node name="Sprite2D" type="Sprite2D" parent="Radio" unique_id=297993046]
-texture = ExtResource("2_bitc8")
-
-[node name="Bala" type="Area2D" parent="." unique_id=888899485]
-script = ExtResource("3_bitc8")
-
-[node name="Sprite2D" type="Sprite2D" parent="Bala" unique_id=1663148978]
-texture = ExtResource("2_bitc8")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bala" unique_id=2046628699]
-shape = SubResource("RectangleShape2D_quvid")
-debug_color = Color(0.4818794, 0.58179706, 0.23272485, 0.41960785)
