@@ -1,15 +1,13 @@
 extends CharacterBody2D
 
-@export var SPEED = 300.0
-@export var JUMP_VELOCITY = -1000.0
-@export var GRAVITY = 1700.0
+const SPEED = 400.0
+const JUMP_VELOCITY = -1000.0
+const GRAVITY = 1700.0
 @export_group("Configurações da Câmera")
 @export var limit_left: int = -100000
 @export var limit_right: int = 100000
 @export var limit_top: int = -100000
 @export var limit_bottom: int = 100000
-
-@onready var game_over_scene := preload("res://cenas/ui/game_over.tscn")
 
 @onready var camera_2d: Camera2D = $Camera2D
 
@@ -29,7 +27,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 	
 	if Input.is_action_just_released("pular") and velocity.y < 0:
-		velocity.y = JUMP_VELOCITY / 10
+		velocity.y = JUMP_VELOCITY / 100
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -42,5 +40,11 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func game_over():
-	get_parent().add_child(game_over_scene.instantiate())
-	queue_free()
+	Engine.time_scale = 0.0
+	
+	# 2. Espera 1 segundo em tempo real (o último argumento 'true' ignora a time_scale)
+	await get_tree().create_timer(0.5, true, false, true).timeout
+	
+	# 3. OBRIGATÓRIO: Restaura a velocidade normal ANTES de recarregar
+	Engine.time_scale = 1.0
+	get_tree().reload_current_scene()
