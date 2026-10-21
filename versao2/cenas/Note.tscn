@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://dbq71h1jseb6o"]
+
+[sub_resource type="GDScript" id="GDScript_jfmrl"]
+script/source = "
+extends Node2D
+class_name RhythmNote
+
+signal missed(note: RhythmNote)
+
+# Configurações da nota
+var lane: int = 0
+var hit_time: float = 0.0
+var spawn_time: float = 0.0
+
+var receptor_y: float = 150.0
+var spawn_y: float = -80.0
+var lane_x: float = 0.0
+var travel_time: float = 1.0
+
+var was_hit: bool = false
+var has_missed: bool = false
+
+# Formato da seta
+var arrow_points := PackedVector2Array([
+	Vector2(0, -28),
+	Vector2(23, -5),
+	Vector2(11, -5),
+	Vector2(11, 22),
+	Vector2(-11, 22),
+	Vector2(-11, -5),
+	Vector2(-23, -5)
+])
+
+# Direções das quatro pistas
+const LANE_ANGLES := [
+	-PI / 2.0, # Esquerda
+	PI,        # Baixo
+	0.0,       # Cima
+	PI / 2.0   # Direita
+]
+
+# Cores das notas
+const LANE_COLORS := [
+	Color(\"#38bdf8\"),
+	Color(\"#a78bfa\"),
+	Color(\"#4ade80\"),
+	Color(\"#fb7185\")
+]
+
+
+func setup(
+	note_lane: int,
+	target_time: float,
+	x_position: float,
+	target_y: float,
+	start_y: float,
+	duration: float
+) -> void:
+	lane = clampi(note_lane, 0, 3)
+
+	hit_time = target_time
+	lane_x = x_position
+	receptor_y = target_y
+	spawn_y = start_y
+
+	travel_time = maxf(duration, 0.01)
+	spawn_time = hit_time - travel_time
+
+	update_position(spawn_time)
+	queue_redraw()
+
+
+# Atualiza a posição com base no tempo da música.
+func update_position(current_song_time: float) -> void:
+	if was_hit or has_missed:
+		return
+
+	var progress: float = (
+		(current_song_time - spawn_time) / travel_time
+	)
+
+	position = Vector2(
+		lane_x,
+		lerpf(spawn_y, receptor_y, progress)
+	)
+
+
+# Verifica se a nota passou da janela de acerto.
+func check_miss(current_song_time: float) -> void:
+	if was_hit or has_missed:
+		return
+
+	if current_song_time > hit_time + 0.180:
+		has_missed = true
+		missed.emit(self)
+
+
+# Remove a nota quando o jogador acerta.
+func mark_hit() -> void:
+	if was_hit or has_missed:
+		return
+
+	was_hit = true
+	queue_free()
+
+
+# Desenha a seta na tela.
+func _draw() -> void:
+	if was_hit or has_missed:
+		return
+
+	var points := PackedVector2Array()
+
+	for point in arrow_points:
+		points.append(
+			point.rotated(LANE_ANGLES[lane])
+		)
+
+	var color: Color = LANE_COLORS[lane]
+
+	# Contorno escuro.
+	draw_colored_polygon(
+		points,
+		Color(\"#111827\")
+	)
+
+	# Interior colorido.
+	var inner_points := PackedVector2Array()
+
+	for point in points:
+		inner_points.append(point * 0.82)
+
+	draw_colored_polygon(
+		inner_points,
+		color
+	)
+"
+
+[node name="Node2D" type="Node2D" unique_id=1615683328]
+script = SubResource("GDScript_jfmrl")
