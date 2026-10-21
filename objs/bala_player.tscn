@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://de8w3a8au6udf"]
+
+[ext_resource type="Script" uid="uid://dku6akujtgnp4" path="res://scripts/bullet_player.gd" id="1_84u8a"]
+[ext_resource type="Texture2D" uid="uid://6nvyf57fi8oi" path="res://icon.svg" id="2_hssgm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s5wex"]
+size = Vector2(34, 33)
+
+[node name="BalaPlayer" type="Area2D" unique_id=1962976271]
+script = ExtResource("1_84u8a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1683799596]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_s5wex")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1627513723]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_hssgm")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
