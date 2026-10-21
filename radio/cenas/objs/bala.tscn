@@ -4,16 +4,16 @@
 [ext_resource type="Texture2D" uid="uid://6nvyf57fi8oi" path="res://icon.svg" id="2_b2yer"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_quvid"]
-size = Vector2(89, 93)
+size = Vector2(62, 62)
 
 [node name="Bala" type="Area2D" unique_id=1884966443 groups=["enemy"]]
 script = ExtResource("1_p8o85")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=560051829]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_b2yer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=127342668]
-position = Vector2(-0.5, -2.5)
 shape = SubResource("RectangleShape2D_quvid")
 debug_color = Color(0.4818794, 0.58179706, 0.23272485, 0.41960785)
 

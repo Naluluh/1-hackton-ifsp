@@ -38,6 +38,7 @@ enemy=""
 solid=""
 player=""
 actionable=""
+camera_switch=""
 
 [input]
 

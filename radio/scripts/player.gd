@@ -12,6 +12,7 @@ const BALA_SCENE = preload("res://cenas/objs/bala_player.tscn")
 @export var limit_bottom: int = 100000
 
 @onready var camera_2d: Camera2D = $Camera2D
+@export var camera_point: Node2D
 
 func _ready() -> void:
 	camera_2d.limit_left = limit_left
@@ -73,3 +74,19 @@ func atirar(direcao: Vector2) -> void:
 	# Define a posição inicial e a direção
 	bala.global_position = global_position
 	bala.setup(direcao)
+
+func mover_camera_para(ponto_destino: Vector2, tempo: float = 1.0) -> Tween:
+	# 1. Cria o Tween
+	var tween = create_tween()
+	
+	# 2. Anima a posição global da câmera até o destino
+	tween.tween_property(camera_2d, "global_position", ponto_destino, tempo)\
+		.set_trans(Tween.TRANS_CUBIC)\
+		.set_ease(Tween.EASE_IN_OUT)
+	return tween
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group('camera_switch'):
+		await mover_camera_para(camera_point.global_position, 1.0).finished
+		camera_2d.reparent(camera_point)
+		camera_2d.position = Vector2.ZERO
