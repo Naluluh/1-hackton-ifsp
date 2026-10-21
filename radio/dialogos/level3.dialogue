@@ -1,0 +1,44 @@
+~ start
+Ada Lovelace: Olá! Eu sou Ada Lovelace, a criadora do primeiro algoritmo feito para uma máquina.
+Ada Lovelace: Hoje, eu preciso da sua ajuda! Os cartões com os algoritmos importantes estão com defeito!
+Ada Lovelace: Eu preciso que você me ajude, respondendo algumas questões, para que eu posso concertar os algoritmos.
+Ada Lovelace: Cada questão terá 3 opções, e você precisa escolher a opção certa entre elas.
+Ada Lovelace: Pronta? Aqui vamos nós!
+
+~ questao1
+Ada Lovelace: Quem foi Valentina Tereshkova?
+- Foi a primeira mulher a quebrar a barreira do som.
+	Ada Lovelace: Resposta Errada!
+	=> questao1
+- A mulher que liderou a criação da vacina contra a poliomielite.
+	Ada Lovelace: Resposta Errada!
+	=> questao1
+- A primeira mulher a ir ao espaço, em 1963.
+	Ada Lovelace: Resposta Certa! Um cartucho concluído.
+	do dropar_cartucho("Cartucho1")
+
+~ questao2
+Ada Lovelace: Quem foi Marie Curie?
+- A primeira mulher a ganhar o prêmio nobel, em 1903, e novamente em 1911.
+	Ada Lovelace:  Resposta Certa! Mais um cartucho, e só falta um!
+	do dropar_cartucho("Cartucho2")
+- A mulher que descobriu a penicilina durante a Primeira Guerra Mundial.
+	Ada Lovelace: Resposta Errada!
+	=> questao2
+- Foi quem descobriu a estrutura em dupla hélice do DNA nos anos 1950.
+	Ada Lovelace: Resposta Errada!
+	=> questao2
+
+~ questao3
+Ada Lovelace: Quem foi Hedy Lamarr?
+- Foi uma engenheira alemã pioneira, responsável por inventar a primeira câmera de filme colorido nos anos 1930.
+	Ada Lovelace: Resposta Errada!
+	=> questao3
+- Foi a precursora do Wi-Fi e Bluetooth, com o sistema secreto de comunicação durante a Segunda Guerra Mundial.
+	Ada Lovelace:  Resposta Certa! Foi o último cartucho!
+	do dropar_cartucho("Cartucho3")
+- A mulher responsável por desenvolver o primeiro rádio FM portátil durante a Segunda Guerra Mundial.
+	Ada Lovelace: Resposta Errada!
+	=> questao3
+Ada Lovelace: Muito obrigada! E viva às mulheres na ciência!
+=> END

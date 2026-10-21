@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b56inrnds5e8n"]
+
+[ext_resource type="Script" uid="uid://jxd64px2w7dd" path="res://scripts/chave.gd" id="1_4ld7y"]
+[ext_resource type="Texture2D" uid="uid://bpjh40o18r4mn" path="res://sprites/itens/chave_laboratorio.png" id="2_0vxeq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s5wex"]
+size = Vector2(52, 24)
+
+[node name="Chave" type="Area2D" unique_id=931736694]
+script = ExtResource("1_4ld7y")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=671234822]
+scale = Vector2(0.105, 0.105)
+texture = ExtResource("2_0vxeq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=971349385]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_s5wex")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

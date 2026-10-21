@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dxxothjk1vtah" path="res://scripts/ui/menuzin.gd" id="1_7ggnl"]
 [ext_resource type="Texture2D" uid="uid://dt00cpl8ebp1w" path="res://sprites/cenarios/menu_selecao/chao.png" id="2_2kh85"]
+[ext_resource type="Texture2D" uid="uid://t1t8yaewg0sv" path="res://sprites/cenarios/menu_selecao/quadro.png" id="3_bhu4j"]
+[ext_resource type="Texture2D" uid="uid://c6ra5e2o63bet" path="res://sprites/cenarios/menu_selecao/pilastra1.png" id="4_oobe4"]
+[ext_resource type="Texture2D" uid="uid://bap0fytv1sta0" path="res://sprites/cenarios/menu_selecao/pilastra2.png" id="5_oaweh"]
+[ext_resource type="Texture2D" uid="uid://115tlu7ykd1r" path="res://sprites/cenarios/menu_selecao/pilastra3.png" id="6_p5pch"]
 
 [node name="MenuSelecao" type="Node2D" unique_id=422613273]
 
@@ -16,36 +20,49 @@ script = ExtResource("1_7ggnl")
 layout_mode = 0
 offset_right = 1157.0
 offset_bottom = 653.0
-color = Color(0.64359784, 0.5629761, 0.22782776, 1)
+color = Color(0.9702293, 0.93304676, 0.7767085, 1)
 
 [node name="chao" type="Sprite2D" parent="Menuzin" unique_id=1603707548]
-position = Vector2(574.99994, 282.00003)
-scale = Vector2(1.1220703, 1.0058594)
+position = Vector2(589.74994, 282.00003)
+scale = Vector2(1.1508789, 1.0058594)
 texture = ExtResource("2_2kh85")
 
-[node name="Level 1" type="Button" parent="Menuzin" unique_id=53431262]
-layout_mode = 0
-offset_left = 225.0
-offset_top = 329.0
-offset_right = 382.0
-offset_bottom = 413.0
-text = "Level 1"
+[node name="quadro" type="Sprite2D" parent="Menuzin" unique_id=2064419263]
+position = Vector2(175, 229)
+scale = Vector2(0.41, 0.41)
+texture = ExtResource("3_bhu4j")
 
-[node name="Level 2" type="Button" parent="Menuzin" unique_id=2092085531]
+[node name="Level 1" type="TextureButton" parent="Menuzin" unique_id=491926895]
+clip_contents = true
 layout_mode = 0
-offset_left = 478.0
-offset_top = 324.0
-offset_right = 635.0
-offset_bottom = 408.0
-text = "Level 2"
+offset_left = 205.0
+offset_top = 286.0
+offset_right = 326.95123
+offset_bottom = 542.0
+scale = Vector2(1.025, 1.025)
+texture_normal = ExtResource("4_oobe4")
+ignore_texture_size = true
+stretch_mode = 3
 
-[node name="Level 3" type="Button" parent="Menuzin" unique_id=208590345]
+[node name="Level 2" type="TextureButton" parent="Menuzin" unique_id=1549922627]
 layout_mode = 0
-offset_left = 728.0
-offset_top = 330.0
-offset_right = 885.0
-offset_bottom = 414.0
-text = "Level 3"
+offset_left = 488.0
+offset_top = 292.0
+offset_right = 621.0
+offset_bottom = 573.0
+texture_normal = ExtResource("5_oaweh")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="Level 3" type="TextureButton" parent="Menuzin" unique_id=803613254]
+layout_mode = 0
+offset_left = 755.0
+offset_top = 285.0
+offset_right = 915.0
+offset_bottom = 555.0
+texture_normal = ExtResource("6_p5pch")
+ignore_texture_size = true
+stretch_mode = 3
 
 [connection signal="pressed" from="Menuzin/Level 1" to="Menuzin" method="_on_level_1_pressed"]
 [connection signal="pressed" from="Menuzin/Level 2" to="Menuzin" method="_on_level_2_pressed"]

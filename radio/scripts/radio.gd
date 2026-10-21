@@ -3,7 +3,7 @@ extends CharacterBody2D
 # Puxa o nó da bala diretamente da cena do Nível (ajusta o caminho se necessário)
 @onready var bullet_scene := preload("res://cenas/objs/bala.tscn")
 
-@export var fire_rate := 0.8
+@export var fire_rate := 0.7
 @export var bullet_speed: float = 800.0
 var shoot_timer := 0.0
 
@@ -11,7 +11,7 @@ var shoot_timer := 0.0
 signal health_changed(current_health: float, max_health: float)
 signal boss_died
 
-@export var max_health: float = 100.0
+@export var max_health: float = 200.0
 var current_health: float
 
 func _ready() -> void:

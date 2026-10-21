@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://d02r5gmtso2ul"]
+
+[ext_resource type="Script" uid="uid://dsxpvcenm0mx" path="res://scripts/level_3.gd" id="1_ubhry"]
+[ext_resource type="Texture2D" uid="uid://cro80lb4up8v8" path="res://sprites/cenarios/fase_lovelace/cartao_perfurado.png" id="2_0cdkh"]
+[ext_resource type="PackedScene" uid="uid://u6egi4ksgnet" path="res://cenas/levels/mapas/Mapa1Fase3.tscn" id="2_mbf7a"]
+[ext_resource type="Script" uid="uid://cdsn4y81x057d" path="res://scripts/cartucho.gd" id="3_0cdkh"]
+[ext_resource type="Texture2D" uid="uid://6nvyf57fi8oi" path="res://icon.svg" id="3_mbf7a"]
+[ext_resource type="Texture2D" uid="uid://c0ht2xv48pcba" path="res://sprites/personagens/cientistas_npc/ada-lovelace-p1.png" id="5_7rh4q"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_s5wex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s5wex"]
+size = Vector2(248.99998, 103.999985)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4whw"]
+size = Vector2(1124, 353.125)
+
+[node name="AdaLovelace" type="Node2D" unique_id=192315503]
+script = ExtResource("1_ubhry")
+
+[node name="Node2D" parent="." unique_id=802323560 instance=ExtResource("2_mbf7a")]
+modulate = Color(0.4045111, 0.40451115, 0.4045111, 1)
+position = Vector2(713, -119)
+scale = Vector2(1.945, 1.945)
+
+[node name="Cartucho1" type="RigidBody2D" parent="." unique_id=2115227878]
+position = Vector2(256, 118.000015)
+rotation = 1.5707964
+physics_material_override = SubResource("PhysicsMaterial_s5wex")
+script = ExtResource("3_0cdkh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cartucho1" unique_id=76424493]
+scale = Vector2(0.325, 0.325)
+texture = ExtResource("2_0cdkh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cartucho1" unique_id=1591930159]
+position = Vector2(-0.5000229, 0)
+shape = SubResource("RectangleShape2D_s5wex")
+
+[node name="Cartucho2" type="RigidBody2D" parent="." unique_id=1119323968]
+position = Vector2(578, 118)
+rotation = 1.5707964
+physics_material_override = SubResource("PhysicsMaterial_s5wex")
+script = ExtResource("3_0cdkh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cartucho2" unique_id=1899259712]
+scale = Vector2(0.325, 0.325)
+texture = ExtResource("2_0cdkh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cartucho2" unique_id=1264246518]
+position = Vector2(-0.5000229, 0)
+shape = SubResource("RectangleShape2D_s5wex")
+
+[node name="Cartucho3" type="RigidBody2D" parent="." unique_id=590085499]
+position = Vector2(882, 118)
+rotation = 1.5707964
+physics_material_override = SubResource("PhysicsMaterial_s5wex")
+script = ExtResource("3_0cdkh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cartucho3" unique_id=236085983]
+scale = Vector2(0.325, 0.325)
+texture = ExtResource("2_0cdkh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cartucho3" unique_id=1250705007]
+position = Vector2(-0.5000229, 0)
+shape = SubResource("RectangleShape2D_s5wex")
+
+[node name="Ada" type="Sprite2D" parent="." unique_id=1009350376]
+position = Vector2(983, 415)
+scale = Vector2(4.675, 4.675)
+texture = ExtResource("5_7rh4q")
+
+[node name="Maquina" type="Area2D" parent="." unique_id=1841604302]
+position = Vector2(608, 662)
+
+[node name="Sprite2D" type="Sprite2D" parent="Maquina" unique_id=1633161130]
+scale = Vector2(10.2, 2.0800023)
+texture = ExtResource("3_mbf7a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Maquina" unique_id=135882794]
+position = Vector2(-18, 185.5)
+scale = Vector2(1, 0.32)
+shape = SubResource("RectangleShape2D_i4whw")
+
+[connection signal="body_entered" from="Maquina" to="Cartucho1" method="_on_maquina_body_entered"]

@@ -1,20 +1,37 @@
 [gd_scene format=3 uid="uid://p1stna86bcn0"]
 
 [ext_resource type="Script" uid="uid://djfcljgdmim3w" path="res://scripts/bullet.gd" id="1_p8o85"]
-[ext_resource type="Texture2D" uid="uid://6nvyf57fi8oi" path="res://icon.svg" id="2_b2yer"]
+[ext_resource type="Texture2D" uid="uid://daiyfiygc7h27" path="res://sprites/inimigos/atomo1.png" id="2_b2yer"]
+[ext_resource type="Texture2D" uid="uid://rv7g1i5dpyi8" path="res://sprites/inimigos/atomo2.png" id="3_viq8e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_quvid"]
 size = Vector2(62, 62)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_s5wex"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_b2yer")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_viq8e")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Bala" type="Area2D" unique_id=1884966443 groups=["enemy"]]
 script = ExtResource("1_p8o85")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=560051829]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_b2yer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=127342668]
 shape = SubResource("RectangleShape2D_quvid")
 debug_color = Color(0.4818794, 0.58179706, 0.23272485, 0.41960785)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=450146497]
+position = Vector2(4, 15.000001)
+scale = Vector2(0.18, 0.18)
+sprite_frames = SubResource("SpriteFrames_s5wex")
+frame_progress = 0.106389895
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

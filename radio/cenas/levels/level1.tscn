@@ -1,13 +1,17 @@
 [gd_scene format=3 uid="uid://b3ugtwod1qmdi"]
 
 [ext_resource type="PackedScene" uid="uid://whhcv21idyg6" path="res://cenas/objs/player.tscn" id="1_n72ej"]
-[ext_resource type="Texture2D" uid="uid://dt00cpl8ebp1w" path="res://sprites/cenarios/menu_selecao/chao.png" id="2_i65fa"]
-[ext_resource type="Texture2D" uid="uid://6nvyf57fi8oi" path="res://icon.svg" id="2_nidl1"]
+[ext_resource type="Script" uid="uid://dyu00bdpa6i2m" path="res://scripts/level_1.gd" id="1_sm06s"]
+[ext_resource type="PackedScene" uid="uid://h1ep2lw3s054" path="res://cenas/levels/mapas/Mapa1Fase1.tscn" id="1_yhnu7"]
+[ext_resource type="PackedScene" uid="uid://c4y8yd0a7c42m" path="res://cenas/levels/mapas/Mapa2Fase1.tscn" id="2_ajl63"]
+[ext_resource type="PackedScene" uid="uid://b56inrnds5e8n" path="res://cenas/objs/chave.tscn" id="2_uh04n"]
 [ext_resource type="PackedScene" uid="uid://dxpq5xllof0vd" path="res://cenas/objs/radio.tscn" id="3_pd12y"]
 [ext_resource type="PackedScene" uid="uid://dm7ofbvvtib2b" path="res://cenas/objs/marie.tscn" id="3_rhvpd"]
 [ext_resource type="Script" uid="uid://bhhvd2cap2yfo" path="res://scripts/portao.gd" id="5_5yi82"]
+[ext_resource type="Texture2D" uid="uid://dqgat62owu52e" path="res://sprites/cenarios/fase_curie/porta.png" id="6_sm06s"]
 [ext_resource type="Script" uid="uid://16bxatqnd7ud" path="res://scripts/caminho_radio.gd" id="6_t02x3"]
 [ext_resource type="Script" uid="uid://5cy1oo4v27lp" path="res://scripts/ui/progress_bar.gd" id="6_t3s2q"]
+[ext_resource type="Texture2D" uid="uid://doj1c5dy46y37" path="res://sprites/cenarios/fase_curie/porta_aberta.png" id="7_uh04n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xkc6u"]
 size = Vector2(4867.5, 257.15625)
@@ -21,6 +25,25 @@ size = Vector2(121, 798)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s5wex"]
 size = Vector2(125, 862)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_s5wex"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_uh04n")
+}],
+"loop": 1,
+"name": &"aberta",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_sm06s")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hp6nn"]
 size = Vector2(112, 278.5)
 
@@ -30,10 +53,30 @@ _data = {
 }
 point_count = 22
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_agkqp"]
+bg_color = Color(0.87058824, 0.15686275, 0.07450981, 0.47058824)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oq74i"]
+bg_color = Color(0.87058824, 0.15686275, 0.07450981, 1)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vgg8p"]
 size = Vector2(20, 192)
 
-[node name="MarieCurie" type="Node2D" unique_id=1136361142]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0sbpn"]
+size = Vector2(40, 203)
+
+[node name="MarieCurie" type="Node2D" unique_id=1136361142 node_paths=PackedStringArray("boss")]
+script = ExtResource("1_sm06s")
+boss = NodePath("Path2D/CaminhoRadio/Radio")
+chave = ExtResource("2_uh04n")
+
+[node name="Node2D2" parent="." unique_id=2084096967 instance=ExtResource("1_yhnu7")]
+position = Vector2(472, 1014)
+scale = Vector2(3.65, 3.65)
+
+[node name="Node2D" parent="." unique_id=1394659253 instance=ExtResource("2_ajl63")]
+position = Vector2(5460, 609)
+scale = Vector2(6.47, 6.47)
 
 [node name="Marie" parent="." unique_id=89439369 instance=ExtResource("3_rhvpd")]
 position = Vector2(572, 482)
@@ -42,17 +85,11 @@ position = Vector2(572, 482)
 position = Vector2(134, 486)
 limit_left = 0
 limit_right = 3285
-limit_top = -100000
 limit_bottom = 800
 camera_point = NodePath("../CameraPoint")
 
 [node name="chao" type="StaticBody2D" parent="." unique_id=1513629079 groups=["solid"]]
 position = Vector2(569, 526)
-
-[node name="Sprite2D" type="Sprite2D" parent="chao" unique_id=1651027437]
-position = Vector2(1817.9999, -604.9999)
-scale = Vector2(4.6943355, 2.6152341)
-texture = ExtResource("2_i65fa")
 
 [node name="Area2D" type="Area2D" parent="chao" unique_id=1071689872 groups=["solid"]]
 
@@ -98,22 +135,12 @@ shape = SubResource("RectangleShape2D_xsmad")
 [node name="Parede2" type="Area2D" parent="Coliseu" unique_id=1587412162 groups=["solid"]]
 position = Vector2(3286, 39)
 
-[node name="Sprite2D" type="Sprite2D" parent="Coliseu/Parede2" unique_id=1886771076]
-position = Vector2(0, -153.00002)
-scale = Vector2(1, 6.3125)
-texture = ExtResource("2_nidl1")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Coliseu/Parede2" unique_id=1313026597]
 position = Vector2(0.5, -154)
 shape = SubResource("RectangleShape2D_i4whw")
 
 [node name="Parede1" type="Area2D" parent="Coliseu" unique_id=2082032596 groups=["solid"]]
 position = Vector2(1616.375, 67)
-
-[node name="Sprite2D" type="Sprite2D" parent="Coliseu/Parede1" unique_id=1429652626]
-position = Vector2(0, -144.00003)
-scale = Vector2(1, 6.75)
-texture = ExtResource("2_nidl1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Coliseu/Parede1" unique_id=2020749402]
 position = Vector2(0.125, -146)
@@ -122,22 +149,17 @@ shape = SubResource("RectangleShape2D_s5wex")
 [node name="Parede3" type="Area2D" parent="Coliseu" unique_id=1918556122 groups=["solid"]]
 position = Vector2(1616.375, 67)
 
-[node name="Sprite2D" type="Sprite2D" parent="Coliseu/Parede3" unique_id=1569576830]
-position = Vector2(0, -144.00003)
-scale = Vector2(1, 6.75)
-texture = ExtResource("2_nidl1")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Coliseu/Parede3" unique_id=1890276718]
 position = Vector2(0.125, -146)
 shape = SubResource("RectangleShape2D_s5wex")
 
-[node name="Portao_area" type="Area2D" parent="Coliseu" unique_id=344244699 groups=["solid"]]
+[node name="Portao_area" type="Area2D" parent="Coliseu" unique_id=344244699 groups=["portao", "solid"]]
 script = ExtResource("5_5yi82")
 
-[node name="Sprite2D" type="Sprite2D" parent="Coliseu/Portao_area" unique_id=1178040117]
-position = Vector2(3285, 434)
-scale = Vector2(1, 2.203125)
-texture = ExtResource("2_nidl1")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coliseu/Portao_area" unique_id=341332590]
+position = Vector2(3215.9998, 455.00003)
+scale = Vector2(0.195, 0.432)
+sprite_frames = SubResource("SpriteFrames_s5wex")
 
 [node name="Portao" type="CollisionShape2D" parent="Coliseu/Portao_area" unique_id=1794833334]
 position = Vector2(3274, 434)
@@ -187,6 +209,8 @@ offset_top = 35.0
 offset_right = 254.0
 offset_bottom = 62.0
 grow_horizontal = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_agkqp")
+theme_override_styles/fill = SubResource("StyleBoxFlat_oq74i")
 value = 100.0
 script = ExtResource("6_t3s2q")
 boss = NodePath("../../../Path2D/CaminhoRadio/Radio")
@@ -200,6 +224,14 @@ offset_bottom = 22.0
 text = "Rádio
 "
 
+[node name="FadeRect" type="ColorRect" parent="CanvasLayer" unique_id=2031492309]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
 [node name="CameraPoint" type="Node2D" parent="." unique_id=2082023997]
 position = Vector2(2431, 101)
 
@@ -209,5 +241,13 @@ position = Vector2(1647, 470)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSwitch" unique_id=375094218]
 position = Vector2(0, -18)
 shape = SubResource("RectangleShape2D_vgg8p")
+
+[node name="porta_arena" type="StaticBody2D" parent="." unique_id=1913161249]
+position = Vector2(1649, 447)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="porta_arena" unique_id=90730320]
+position = Vector2(10, 2.5)
+shape = SubResource("RectangleShape2D_0sbpn")
+disabled = true
 
 [connection signal="body_entered" from="Coliseu/Portao_area" to="Coliseu/Portao_area" method="_on_body_entered"]

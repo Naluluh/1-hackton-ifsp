@@ -1,2 +1,9 @@
 ~ interacao_marie
-Marie Curie: Me ajude a chegar na escola! => END
+Marie Curie: Eu preciso de ajuda para chegar à escola! 
+Marie Curie: Use o WASD para andar, e as Setas para atirar no rádio bloqueando a porta.
+Marie Curie: Assim que ele for derrotado, uma chave aparecerá e abrirá a porta quando você pega-la.
+Marie Curie: Mas cuidado! O Rádio está soltando... Bom, rádio (Ra), por todo lado! E se ele te acertar, você recomeça o level.
+=> END
+
+~ interacao_marie2
+Marie Curie: Rápido! Eu preciso chegar à escola!.

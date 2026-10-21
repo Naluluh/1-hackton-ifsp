@@ -41,7 +41,7 @@ content_margin_left = 20.0
 content_margin_top = 10.0
 content_margin_right = 20.0
 content_margin_bottom = 10.0
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0.13725491, 0.13333334, 0.13725491, 0.59607846)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
@@ -53,7 +53,7 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkmqt"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0.13725491, 0.13333334, 0.13725491, 1)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3

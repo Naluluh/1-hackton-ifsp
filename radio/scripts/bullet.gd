@@ -19,6 +19,7 @@ func fire(start_pos: Vector2, target_direction: Vector2, new_speed: float = 700.
 	active = true
 	visible = true
 	speed = new_speed
+	$AnimatedSprite2D.play('default')
 
 
 func _on_area_entered(area: Area2D) -> void:

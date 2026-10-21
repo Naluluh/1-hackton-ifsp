@@ -5,6 +5,7 @@ const JUMP_VELOCITY = -1000.0
 const GRAVITY = 1700.0
 const BALA_SCENE = preload("res://cenas/objs/bala_player.tscn")
 
+
 @export_group("Configurações da Câmera")
 @export var limit_left: int = -100000
 @export var limit_right: int = 100000
@@ -12,6 +13,7 @@ const BALA_SCENE = preload("res://cenas/objs/bala_player.tscn")
 @export var limit_bottom: int = 100000
 
 @onready var camera_2d: Camera2D = $Camera2D
+@onready var fade_rect: ColorRect = get_parent().find_child('CanvasLayer').find_child('FadeRect')
 @export var camera_point: Node2D
 
 func _ready() -> void:
@@ -43,13 +45,20 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func game_over():
-	Engine.time_scale = 0.0
+	get_tree().paused = true
+	var tween = create_tween()
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	# Anima o canal Alpha (transparência) do ColorRect de 0.0 até 1.0 em 1.5 segundos
+	tween.tween_property(fade_rect, "color:a", 1.0, 1.5)\
+		.set_trans(Tween.TRANS_SINE)\
+		.set_ease(Tween.EASE_IN_OUT)
+	set_physics_process(false)
 	
-	# 2. Espera 1 segundo em tempo real (o último argumento 'true' ignora a time_scale)
-	await get_tree().create_timer(0.5, true, false, true).timeout
+	# 3. Espera o efeito de escurecimento terminar
+	await tween.finished
 	
 	# 3. OBRIGATÓRIO: Restaura a velocidade normal ANTES de recarregar
-	Engine.time_scale = 1.0
+	get_tree().paused = false
 	get_tree().reload_current_scene()
 
 func _unhandled_input(event: InputEvent) -> void:
