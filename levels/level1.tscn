@@ -1,0 +1,147 @@
+[gd_scene format=3 uid="uid://b3ugtwod1qmdi"]
+
+[ext_resource type="PackedScene" uid="uid://whhcv21idyg6" path="res://cenas/objs/player.tscn" id="1_n72ej"]
+[ext_resource type="Texture2D" uid="uid://dt00cpl8ebp1w" path="res://sprites/cenarios/menu_selecao/chao.png" id="2_i65fa"]
+[ext_resource type="Texture2D" uid="uid://6nvyf57fi8oi" path="res://icon.svg" id="2_nidl1"]
+[ext_resource type="PackedScene" uid="uid://dxpq5xllof0vd" path="res://cenas/objs/radio.tscn" id="3_pd12y"]
+[ext_resource type="PackedScene" uid="uid://dm7ofbvvtib2b" path="res://cenas/objs/marie.tscn" id="3_rhvpd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xkc6u"]
+size = Vector2(4867.5, 257.15625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xsmad"]
+size = Vector2(95.25, 522)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4whw"]
+size = Vector2(121, 798)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s5wex"]
+size = Vector2(125, 862)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hp6nn"]
+size = Vector2(90, 278.5)
+
+[node name="MarieCurie" type="Node2D" unique_id=1136361142]
+
+[node name="Marie" parent="." unique_id=89439369 instance=ExtResource("3_rhvpd")]
+position = Vector2(572, 482)
+
+[node name="Obj_Player" parent="." unique_id=730524518 instance=ExtResource("1_n72ej")]
+position = Vector2(131, 389)
+limit_left = 0
+limit_right = 3285
+limit_bottom = 600
+
+[node name="chao" type="StaticBody2D" parent="." unique_id=1513629079 groups=["solid"]]
+position = Vector2(569, 526)
+
+[node name="Sprite2D" type="Sprite2D" parent="chao" unique_id=1651027437]
+position = Vector2(1817.9999, -604.9999)
+scale = Vector2(4.6943355, 2.6152341)
+texture = ExtResource("2_i65fa")
+
+[node name="Area2D" type="Area2D" parent="chao" unique_id=1071689872 groups=["solid"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chao/Area2D" unique_id=2061792151]
+position = Vector2(1853.25, 150.42188)
+shape = SubResource("RectangleShape2D_xkc6u")
+debug_color = Color(0.3405413, 0.6216379, 3.85046e-07, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="chao" unique_id=1414376664]
+position = Vector2(1853.25, 150.42188)
+shape = SubResource("RectangleShape2D_xkc6u")
+debug_color = Color(0.3405413, 0.6216379, 3.85046e-07, 0.41960785)
+
+[node name="teto" type="StaticBody2D" parent="." unique_id=1371910288 groups=["solid"]]
+position = Vector2(516, -811)
+
+[node name="Area2D" type="Area2D" parent="teto" unique_id=1967215821 groups=["solid"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teto/Area2D" unique_id=1941563474]
+position = Vector2(1853.25, 150.42188)
+shape = SubResource("RectangleShape2D_xkc6u")
+debug_color = Color(0.3405413, 0.6216379, 3.85046e-07, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="teto" unique_id=1634910087]
+position = Vector2(1853.25, 150.42188)
+shape = SubResource("RectangleShape2D_xkc6u")
+debug_color = Color(0.3405413, 0.6216379, 3.85046e-07, 0.41960785)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=920547330]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2" unique_id=667790968]
+position = Vector2(-37, 302)
+shape = SubResource("RectangleShape2D_xsmad")
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D2" unique_id=910242794 groups=["solid"]]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D2/Area2D" unique_id=439913441]
+position = Vector2(-37, 302)
+shape = SubResource("RectangleShape2D_xsmad")
+
+[node name="Coliseu" type="StaticBody2D" parent="." unique_id=1934835045]
+
+[node name="Parede2" type="Area2D" parent="Coliseu" unique_id=1587412162 groups=["solid"]]
+position = Vector2(3286, 39)
+
+[node name="Sprite2D" type="Sprite2D" parent="Coliseu/Parede2" unique_id=1886771076]
+position = Vector2(0, -153.00002)
+scale = Vector2(1, 6.3125)
+texture = ExtResource("2_nidl1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coliseu/Parede2" unique_id=1313026597]
+position = Vector2(0.5, -154)
+shape = SubResource("RectangleShape2D_i4whw")
+
+[node name="Parede1" type="Area2D" parent="Coliseu" unique_id=2082032596 groups=["solid"]]
+position = Vector2(1616.375, 67)
+
+[node name="Sprite2D" type="Sprite2D" parent="Coliseu/Parede1" unique_id=1429652626]
+position = Vector2(0, -144.00003)
+scale = Vector2(1, 6.75)
+texture = ExtResource("2_nidl1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coliseu/Parede1" unique_id=2020749402]
+position = Vector2(0.125, -146)
+shape = SubResource("RectangleShape2D_s5wex")
+
+[node name="Parede3" type="Area2D" parent="Coliseu" unique_id=1918556122 groups=["solid"]]
+position = Vector2(1616.375, 67)
+
+[node name="Sprite2D" type="Sprite2D" parent="Coliseu/Parede3" unique_id=1569576830]
+position = Vector2(0, -144.00003)
+scale = Vector2(1, 6.75)
+texture = ExtResource("2_nidl1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coliseu/Parede3" unique_id=1890276718]
+position = Vector2(0.125, -146)
+shape = SubResource("RectangleShape2D_s5wex")
+
+[node name="Portao_area" type="Area2D" parent="Coliseu" unique_id=344244699 groups=["solid"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="Coliseu/Portao_area" unique_id=1178040117]
+position = Vector2(3285, 434)
+scale = Vector2(1, 2.203125)
+texture = ExtResource("2_nidl1")
+
+[node name="Portao" type="CollisionShape2D" parent="Coliseu/Portao_area" unique_id=1794833334]
+position = Vector2(3285, 434)
+shape = SubResource("RectangleShape2D_hp6nn")
+debug_color = Color(0, 0.6431373, 0.30588236, 1)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Coliseu" unique_id=158110263]
+position = Vector2(3286.5, -115)
+shape = SubResource("RectangleShape2D_i4whw")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Coliseu" unique_id=847095199]
+position = Vector2(1616.5, -79)
+shape = SubResource("RectangleShape2D_s5wex")
+
+[node name="Portao2" type="CollisionShape2D" parent="Coliseu" unique_id=1784551521]
+position = Vector2(3285, 434)
+shape = SubResource("RectangleShape2D_hp6nn")
+debug_color = Color(0, 0.6431373, 0.30588236, 1)
+
+[node name="Radio" parent="." unique_id=368011282 instance=ExtResource("3_pd12y")]
+position = Vector2(2417, -18)
+bullet_speed = 500.0

@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://dxtdcuviis2xt"]
+
+[ext_resource type="Script" uid="uid://dxxothjk1vtah" path="res://scripts/ui/menuzin.gd" id="1_7ggnl"]
+[ext_resource type="Texture2D" uid="uid://dt00cpl8ebp1w" path="res://sprites/cenarios/menu_selecao/chao.png" id="2_2kh85"]
+
+[node name="MenuSelecao" type="Node2D" unique_id=422613273]
+
+[node name="Menuzin" type="Control" parent="." unique_id=25765142]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_7ggnl")
+
+[node name="ColorRect" type="ColorRect" parent="Menuzin" unique_id=2045706096]
+layout_mode = 0
+offset_right = 1157.0
+offset_bottom = 653.0
+color = Color(0.64359784, 0.5629761, 0.22782776, 1)
+
+[node name="chao" type="Sprite2D" parent="Menuzin" unique_id=1603707548]
+position = Vector2(574.99994, 282.00003)
+scale = Vector2(1.1220703, 1.0058594)
+texture = ExtResource("2_2kh85")
+
+[node name="Level 1" type="Button" parent="Menuzin" unique_id=53431262]
+layout_mode = 0
+offset_left = 225.0
+offset_top = 329.0
+offset_right = 382.0
+offset_bottom = 413.0
+text = "Level 1"
+
+[node name="Level 2" type="Button" parent="Menuzin" unique_id=2092085531]
+layout_mode = 0
+offset_left = 478.0
+offset_top = 324.0
+offset_right = 635.0
+offset_bottom = 408.0
+text = "Level 2"
+
+[node name="Level 3" type="Button" parent="Menuzin" unique_id=208590345]
+layout_mode = 0
+offset_left = 728.0
+offset_top = 330.0
+offset_right = 885.0
+offset_bottom = 414.0
+text = "Level 3"
+
+[connection signal="pressed" from="Menuzin/Level 1" to="Menuzin" method="_on_level_1_pressed"]
+[connection signal="pressed" from="Menuzin/Level 2" to="Menuzin" method="_on_level_2_pressed"]
+[connection signal="pressed" from="Menuzin/Level 3" to="Menuzin" method="_on_level_3_pressed"]

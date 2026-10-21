@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://cbrkgbx8do4li"]
+
+[ext_resource type="Script" uid="uid://bejmyxp16idnu" path="res://cenas/levels/level2.gd" id="1_lsyj4"]
+[ext_resource type="Texture2D" uid="uid://dc78djiggx5dn" path="res://sprites/personagens/cientistas_npc/ada-lovelace-p2.png" id="2_o0jeo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_23q6a"]
+size = Vector2(20318.625, 7736.4063)
+
+[node name="Level2_Margareth-Hamilton" type="Control" unique_id=560991299]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 12213.0
+offset_top = -8538.0
+offset_right = 12213.0
+offset_bottom = -8538.0
+
+[node name="Foguete" type="CharacterBody2D" parent="." unique_id=2029942206]
+script = ExtResource("1_lsyj4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Foguete" unique_id=831355939]
+position = Vector2(-50277, -6240)
+skew = 0.38571775
+shape = SubResource("RectangleShape2D_23q6a")
+
+[node name="Sprite2D" type="Sprite2D" parent="Foguete" unique_id=1060284329]
+position = Vector2(-49344.004, -5823.9995)
+rotation = 2.1450098
+scale = Vector2(467.99997, 425)
+skew = -0.75921834
+texture = ExtResource("2_o0jeo")
+
+[node name="Seguranca" type="ProgressBar" parent="." unique_id=2021275715]
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 27.0
+
+[node name="TeclaAtual" type="Label" parent="." unique_id=1223869221]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Tempo" type="Label" parent="." unique_id=391664741]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Resultado" type="Label" parent="." unique_id=1434389887]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
