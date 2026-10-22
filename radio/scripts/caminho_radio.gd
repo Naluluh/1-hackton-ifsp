@@ -5,5 +5,5 @@ extends PathFollow2D
 
 func _process(delta: float) -> void:
 	if is_moving:
-		# Incrementa a posição ao longo do caminho em pixels por segundo
+		# Avança a posição ao longo da curva do Path2D
 		progress += speed * delta
