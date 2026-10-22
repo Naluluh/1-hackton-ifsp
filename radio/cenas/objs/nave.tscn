@@ -1,7 +1,26 @@
 [gd_scene format=3 uid="uid://q4upv6bbunxn"]
 
-[ext_resource type="Texture2D" uid="uid://6nvyf57fi8oi" path="res://icon.svg" id="1_3l8dv"]
 [ext_resource type="Script" uid="uid://bvrx12d3bsaqn" path="res://scripts/nave.gd" id="1_p6gl8"]
+[ext_resource type="Texture2D" uid="uid://bf53v68wdl05d" path="res://sprites/itens/foguete_p1.png" id="2_t0t4x"]
+[ext_resource type="Texture2D" uid="uid://deo6nd3jx6ibo" path="res://sprites/itens/foguete_p2.png" id="3_vbg7h"]
+[ext_resource type="Texture2D" uid="uid://b1s4pheab3ots" path="res://sprites/itens/foguete_p3.png" id="4_4kn74"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s5wex"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_t0t4x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vbg7h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4kn74")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s5wex"]
 size = Vector2(126, 126)
@@ -10,8 +29,9 @@ size = Vector2(126, 126)
 scale = Vector2(0.73, 0.73)
 script = ExtResource("1_p6gl8")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1061791696]
-texture = ExtResource("1_3l8dv")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2081784752]
+scale = Vector2(4.88, 4.88)
+sprite_frames = SubResource("SpriteFrames_s5wex")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1561017996]
 shape = SubResource("RectangleShape2D_s5wex")

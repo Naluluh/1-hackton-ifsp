@@ -1,8 +1,23 @@
 [gd_scene format=3 uid="uid://dm7ofbvvtib2b"]
 
 [ext_resource type="Script" uid="uid://dysfrwnujys14" path="res://scripts/marie.gd" id="1_bytsd"]
-[ext_resource type="Texture2D" uid="uid://6nvyf57fi8oi" path="res://icon.svg" id="1_ska87"]
+[ext_resource type="Texture2D" uid="uid://nrfr8yadtogp" path="res://sprites/personagens/cientistas_npc/marie_p1.png" id="2_s5g3f"]
+[ext_resource type="Texture2D" uid="uid://yv081csn5055" path="res://sprites/personagens/cientistas_npc/marie_p2.png" id="3_u04wg"]
 [ext_resource type="Texture2D" uid="uid://bf6mfc6w5kgxi" path="res://sprites/cenarios/fase_curie/enter_tecla.png" id="3_vy5gj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s5wex"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_s5g3f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_u04wg")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s5wex"]
 size = Vector2(125, 124)
@@ -10,8 +25,11 @@ size = Vector2(125, 124)
 [node name="Marie" type="Area2D" unique_id=1709017353 groups=["actionable"]]
 script = ExtResource("1_bytsd")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2037216217]
-texture = ExtResource("1_ska87")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=331033650]
+position = Vector2(2.3841858e-07, -35)
+scale = Vector2(3.155, 3.155)
+sprite_frames = SubResource("SpriteFrames_s5wex")
+frame_progress = 0.20594
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=881503108]
 position = Vector2(0.5, 1)

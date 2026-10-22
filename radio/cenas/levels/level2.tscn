@@ -6,10 +6,31 @@
 [ext_resource type="PackedScene" uid="uid://b023fh2pk1s4o" path="res://cenas/objs/asteroide.tscn" id="3_47h0w"]
 [ext_resource type="Script" uid="uid://dsnno78a64145" path="res://scripts/timer_fase2.gd" id="4_5x2l3"]
 [ext_resource type="FontFile" uid="uid://d6772gv1gq4y" path="res://upheavtt.ttf" id="5_53c1b"]
+[ext_resource type="Texture2D" uid="uid://4gd83uib0q6k" path="res://sprites/personagens/cientistas_npc/margareth_olho_aberto.png" id="7_jjbx3"]
+[ext_resource type="Texture2D" uid="uid://brgifd7wlof66" path="res://sprites/personagens/cientistas_npc/margareth_olho_fechado.png" id="9_s8h4c"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_s5wex"]
 font = ExtResource("5_53c1b")
 font_size = 30
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s5wex"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_jjbx3")
+}],
+"loop": 1,
+"name": &"dano",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_s8h4c")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Level2" type="Node2D" unique_id=1367297355]
 script = ExtResource("1_53c1b")
@@ -28,6 +49,7 @@ script = ExtResource("2_o0jeo")
 asteroide_scene = ExtResource("3_47h0w")
 
 [node name="Timer" type="Timer" parent="Asteroide_Spawner" unique_id=986368081]
+wait_time = 0.5
 autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1162430230]
@@ -37,6 +59,12 @@ script = ExtResource("4_5x2l3")
 offset_right = 40.0
 offset_bottom = 23.0
 label_settings = SubResource("LabelSettings_s5wex")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=188473989]
+position = Vector2(1053, 570)
+scale = Vector2(1.755, 1.755)
+sprite_frames = SubResource("SpriteFrames_s5wex")
+animation = &"dano"
 
 [node name="FadeRect" type="ColorRect" parent="CanvasLayer" unique_id=378158922]
 anchors_preset = 15
@@ -49,4 +77,3 @@ color = Color(0, 0, 0, 0)
 [node name="CountdownTimer" type="Timer" parent="CanvasLayer" unique_id=974179539]
 wait_time = 60.0
 one_shot = true
-autostart = true

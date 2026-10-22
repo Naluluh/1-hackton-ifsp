@@ -3,6 +3,9 @@ extends Area2D
 @export var speed: float = 800.0
 var direction: Vector2 = Vector2.ZERO
 
+func _ready() -> void:
+	$AnimatedSprite2D.play('default')
+
 # Define a direção do tiro e ajusta a rotação do nó
 func setup(dir: Vector2) -> void:
 	direction = dir.normalized()

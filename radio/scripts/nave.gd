@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var speed: float = 300.0
+@export var speed: float = 500.0
 @export var padding: float = 24.0 # Margem para a nave não encostar metade do corpo fora da tela
 @export var fade_rect: ColorRect
 
@@ -27,6 +27,7 @@ func _process(delta: float) -> void:
 	global_position.x = clampf(global_position.x, padding, screen_size.x - padding)
 	global_position.y = clampf(global_position.y, padding, screen_size.y - padding)
 func game_over() -> void:
+	get_parent().find_child('CanvasLayer').find_child('AnimatedSprite2D').play('dano')
 	get_tree().paused = true
 	var tween = create_tween()
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)

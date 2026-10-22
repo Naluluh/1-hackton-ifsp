@@ -40,8 +40,13 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("andar_esquerda", "andar_direita")
 	if direction:
 		velocity.x = direction * SPEED
+		if direction > 0:
+			$AnimatedSprite2D.play('direta')
+		elif direction < 0:
+			$AnimatedSprite2D.play('esquerda')
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		$AnimatedSprite2D.play("default")
 	move_and_slide()
 
 func game_over():

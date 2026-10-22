@@ -3,6 +3,9 @@ extends Area2D
 var player_in_range: bool = true
 var dialogo_visto: bool = false
 
+func _ready():
+	$AnimatedSprite2D.play('default')
+
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group('player') or area.get_parent().is_in_group('player'):
 		player_in_range = true

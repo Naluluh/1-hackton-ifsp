@@ -6,6 +6,8 @@ extends Node2D
 @onready var timer: Timer = $Timer
 
 func _ready() -> void:
+	if not DialogoMargaret.ja_lido:
+		await DialogueManager.dialogue_ended
 	# Conecta o sinal do Timer para criar asteroides periodicamente
 	timer.timeout.connect(_spawnar_asteroide)
 

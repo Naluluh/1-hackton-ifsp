@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://de8w3a8au6udf"]
 
 [ext_resource type="Script" uid="uid://dku6akujtgnp4" path="res://scripts/bullet_player.gd" id="1_84u8a"]
-[ext_resource type="Texture2D" uid="uid://b1o7u1k6xh6l7" path="res://sprites/itens/poder1.png" id="2_hssgm"]
-[ext_resource type="Texture2D" uid="uid://ca421nd3270t4" path="res://sprites/itens/poder2.png" id="3_7cntb"]
+[ext_resource type="Texture2D" uid="uid://cafx6b75urlm" path="res://sprites/itens/som_p1.png" id="2_hssgm"]
+[ext_resource type="Texture2D" uid="uid://cbp6cdaob3mti" path="res://sprites/itens/som_p2.png" id="3_7cntb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s5wex"]
 size = Vector2(34, 33)
@@ -25,13 +25,12 @@ animations = [{
 script = ExtResource("1_84u8a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1683799596]
-position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_s5wex")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=694631178]
-position = Vector2(4, 2)
-scale = Vector2(0.07, 0.07)
+scale = Vector2(5.14, 5.14)
 sprite_frames = SubResource("SpriteFrames_s5wex")
+frame_progress = 0.020494325
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -3,6 +3,9 @@ extends CanvasLayer
 @onready var countdown_timer: Timer = $CountdownTimer
 
 func _ready() -> void:
+	if not DialogoMargaret.ja_lido:
+		await DialogueManager.dialogue_ended
+	$CountdownTimer.start()
 	# Conecta o sinal de finalização do Timer via código
 	countdown_timer.timeout.connect(_on_timer_timeout)
 
@@ -26,5 +29,6 @@ func _on_timer_timeout() -> void:
 	
 	# 3. OBRIGATÓRIO: Restaura a velocidade normal ANTES de recarregar
 	get_tree().paused = false
+	DialogoMargaret.ja_lido = false
 	MusicManager.play_music(preload('res://musicas/menu.ogg'))
 	get_tree().change_scene_to_file("res://cenas/ui/menu_selecao.tscn")

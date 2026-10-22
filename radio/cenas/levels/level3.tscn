@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cro80lb4up8v8" path="res://sprites/cenarios/fase_lovelace/cartao_perfurado.png" id="2_0cdkh"]
 [ext_resource type="PackedScene" uid="uid://u6egi4ksgnet" path="res://cenas/levels/mapas/Mapa1Fase3.tscn" id="2_mbf7a"]
 [ext_resource type="Script" uid="uid://cdsn4y81x057d" path="res://scripts/cartucho.gd" id="3_0cdkh"]
-[ext_resource type="Texture2D" uid="uid://6nvyf57fi8oi" path="res://icon.svg" id="3_mbf7a"]
 [ext_resource type="Texture2D" uid="uid://c0ht2xv48pcba" path="res://sprites/personagens/cientistas_npc/ada-lovelace-p1.png" id="5_7rh4q"]
+[ext_resource type="Texture2D" uid="uid://gp8qdffjayih" path="res://sprites/cenarios/fase_lovelace/maquina_analitica.png" id="6_7rh4q"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_s5wex"]
 
@@ -74,8 +74,9 @@ texture = ExtResource("5_7rh4q")
 position = Vector2(608, 662)
 
 [node name="Sprite2D" type="Sprite2D" parent="Maquina" unique_id=1633161130]
-scale = Vector2(10.2, 2.0800023)
-texture = ExtResource("3_mbf7a")
+position = Vector2(-24, -6)
+scale = Vector2(1.595, 0.565)
+texture = ExtResource("6_7rh4q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Maquina" unique_id=135882794]
 position = Vector2(-18, 185.5)

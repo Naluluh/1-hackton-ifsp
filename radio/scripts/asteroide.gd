@@ -1,6 +1,9 @@
 extends Area2D
 
-@export var speed: float = 300.0
+@export var speed: float = 700.0
+
+func _ready() -> void:
+	$Sprite2D.play('default')
 
 func _process(delta: float) -> void:
 	# Move o asteroide continuamente para baixo
