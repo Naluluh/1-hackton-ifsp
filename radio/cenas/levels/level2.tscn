@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://cbrkgbx8do4li"]
+
+[ext_resource type="PackedScene" uid="uid://q4upv6bbunxn" path="res://cenas/objs/nave.tscn" id="1_2w2d4"]
+[ext_resource type="Script" uid="uid://kr2grssyq36u" path="res://scripts/level_2.gd" id="1_53c1b"]
+[ext_resource type="Script" uid="uid://cadn0mjqrwr4c" path="res://scripts/asteroide_spawner.gd" id="2_o0jeo"]
+[ext_resource type="PackedScene" uid="uid://b023fh2pk1s4o" path="res://cenas/objs/asteroide.tscn" id="3_47h0w"]
+[ext_resource type="Script" uid="uid://dsnno78a64145" path="res://scripts/timer_fase2.gd" id="4_5x2l3"]
+[ext_resource type="FontFile" uid="uid://d6772gv1gq4y" path="res://upheavtt.ttf" id="5_53c1b"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_s5wex"]
+font = ExtResource("5_53c1b")
+font_size = 30
+
+[node name="Level2" type="Node2D" unique_id=1367297355]
+script = ExtResource("1_53c1b")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=972805465]
+offset_right = 1155.0
+offset_bottom = 652.0
+color = Color(0, 0.050980393, 0.08235294, 1)
+
+[node name="Nave" parent="." unique_id=1793345568 node_paths=PackedStringArray("fade_rect") instance=ExtResource("1_2w2d4")]
+position = Vector2(604.99994, 365.99997)
+fade_rect = NodePath("../CanvasLayer/FadeRect")
+
+[node name="Asteroide_Spawner" type="Node2D" parent="." unique_id=1335510019]
+script = ExtResource("2_o0jeo")
+asteroide_scene = ExtResource("3_47h0w")
+
+[node name="Timer" type="Timer" parent="Asteroide_Spawner" unique_id=986368081]
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1162430230]
+script = ExtResource("4_5x2l3")
+
+[node name="TimerLabel" type="Label" parent="CanvasLayer" unique_id=446561843]
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_s5wex")
+
+[node name="FadeRect" type="ColorRect" parent="CanvasLayer" unique_id=378158922]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="CountdownTimer" type="Timer" parent="CanvasLayer" unique_id=974179539]
+wait_time = 60.0
+one_shot = true
+autostart = true

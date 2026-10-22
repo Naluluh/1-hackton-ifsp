@@ -99,3 +99,4 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		await mover_camera_para(camera_point.global_position, 1.0).finished
 		camera_2d.reparent(camera_point)
 		camera_2d.position = Vector2.ZERO
+		get_parent().find_child('porta_arena').find_child('CollisionShape2D').disabled = false

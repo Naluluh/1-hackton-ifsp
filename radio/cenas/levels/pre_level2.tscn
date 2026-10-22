@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://4rsq6yrnaqb5"]
+
+[ext_resource type="Script" uid="uid://bei3xxexypp4g" path="res://scripts/pre_level_2.gd" id="1_6v2p8"]
+[ext_resource type="FontFile" uid="uid://d6772gv1gq4y" path="res://upheavtt.ttf" id="2_4umil"]
+[ext_resource type="Texture2D" uid="uid://c7j1c150u8gtg" path="res://sprites/cenarios/tela_inicial/tela_inicial_botao_sep1.png" id="3_otaai"]
+[ext_resource type="Texture2D" uid="uid://cxlpfcmban2xt" path="res://sprites/cenarios/tela_inicial/tela_inicial_botao_sep1_apagado.png" id="4_m7p7m"]
+[ext_resource type="Texture2D" uid="uid://dx4ubvfj1n2rr" path="res://sprites/ui/margareth-hamilton-img.png" id="5_4umil"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_s5wex"]
+font = ExtResource("2_4umil")
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_i4whw"]
+font = ExtResource("2_4umil")
+font_size = 21
+font_color = Color(0, 0, 0, 1)
+
+[node name="PreLevel2" type="Node2D" unique_id=1947920608 node_paths=PackedStringArray("fade_rect")]
+script = ExtResource("1_6v2p8")
+fade_rect = NodePath("CanvasLayer/FadeRect")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=626789052]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=629146415]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.7137255, 0.47058824, 1, 1)
+
+[node name="Nome" type="Label" parent="CanvasLayer" unique_id=1452696867]
+offset_left = 8.0
+offset_top = 29.0
+offset_right = 509.0
+offset_bottom = 75.0
+text = "Margaret Hamilton"
+label_settings = SubResource("LabelSettings_s5wex")
+
+[node name="Bio" type="Label" parent="CanvasLayer" unique_id=1917048144]
+custom_minimum_size = Vector2(300, 0)
+offset_left = 510.0
+offset_top = 84.0
+offset_right = 1129.0
+offset_bottom = 534.0
+text = "Matemática e cientista da computação norte-americana, Margaret Hamilton foi uma grande pioneira da tecnologia espacial.
+
+Liderou a equipa da NASA responsável pelo software do computador de bordo de todo o programa Apollo.
+Criou uma arquitetura de processamento assíncrono capaz de priorizar tarefas críticas durante momentos de sobrecarga.
+
+Esse sistema salvou historicamente o pouso da Apollo 11 na Lua em 1969 ao ignorar dados secundários de um radar.
+
+Popularizou o termo \"Engenharia de Software\" para a área e recebeu a Medalha Presidencial da Liberdade em 2016."
+label_settings = SubResource("LabelSettings_i4whw")
+autowrap_mode = 3
+
+[node name="Começar" type="TextureButton" parent="CanvasLayer" unique_id=1984858305]
+offset_left = 855.0
+offset_top = 538.0
+offset_right = 1600.0
+offset_bottom = 788.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("3_otaai")
+texture_pressed = ExtResource("4_m7p7m")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=2067992025]
+position = Vector2(244, 348)
+scale = Vector2(0.165, 0.165)
+texture = ExtResource("5_4umil")
+
+[node name="FadeRect" type="ColorRect" parent="CanvasLayer" unique_id=2113305286]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[connection signal="button_down" from="CanvasLayer/Começar" to="." method="_on_começar_button_down"]

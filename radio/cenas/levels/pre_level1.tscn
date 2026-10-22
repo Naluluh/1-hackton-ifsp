@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://b3xnh25ue0xg"]
+
+[ext_resource type="Script" uid="uid://cua1xmfl8ctn0" path="res://scripts/pre_level_1.gd" id="1_gt55y"]
+[ext_resource type="FontFile" uid="uid://d6772gv1gq4y" path="res://upheavtt.ttf" id="2_lajj8"]
+[ext_resource type="Texture2D" uid="uid://c7j1c150u8gtg" path="res://sprites/cenarios/tela_inicial/tela_inicial_botao_sep1.png" id="3_0cmkd"]
+[ext_resource type="Texture2D" uid="uid://cxlpfcmban2xt" path="res://sprites/cenarios/tela_inicial/tela_inicial_botao_sep1_apagado.png" id="4_mm23g"]
+[ext_resource type="Texture2D" uid="uid://b5vi01qsw042h" path="res://sprites/ui/marie-curie-img.jpg" id="5_lajj8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_s5wex"]
+font = ExtResource("2_lajj8")
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_i4whw"]
+font = ExtResource("2_lajj8")
+font_size = 21
+font_color = Color(0, 0, 0, 1)
+
+[node name="PreLevel1" type="Node2D" unique_id=1947920608 node_paths=PackedStringArray("fade_rect")]
+script = ExtResource("1_gt55y")
+fade_rect = NodePath("CanvasLayer/FadeRect")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=626789052]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=629146415]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.7137255, 1, 1, 1)
+
+[node name="Nome" type="Label" parent="CanvasLayer" unique_id=1452696867]
+offset_left = 65.0
+offset_top = 66.0
+offset_right = 383.0
+offset_bottom = 112.0
+text = "Marie Curie"
+label_settings = SubResource("LabelSettings_s5wex")
+
+[node name="Bio" type="Label" parent="CanvasLayer" unique_id=1917048144]
+custom_minimum_size = Vector2(300, 0)
+offset_left = 510.0
+offset_top = 84.0
+offset_right = 1129.0
+offset_bottom = 534.0
+text = "Nascida Maria Salomea Skłodowska em Varsóvia, em 1867, Marie Curie foi uma física e química franco-polonesa pioneira no estudo da radioatividade. Em Varsóvia, Marie estudou em uma escola clandestina para mulheres, antes de se mudar para Paris. Mudou-se em 1891 para estudar na Sorbonne, onde se graduou em Física e Matemática. Casou-se com o cientista Pierre Curie, com quem investigou a radiação e cunhou o termo radioatividade. Juntos, descobriram os elementos químicos polônio e rádio em 1898. 
+
+Foi a primeira mulher a ganhar um Prêmio Nobel (Física, em 1903) e a única pessoa a vencê-lo em duas áreas científicas distintas (Química, em 1911). 
+
+Durante a Primeira Guerra Mundial, desenvolveu unidades móveis de raio-X. Faleceu em 1934 de leucemia, causada pela longa e desprotegida exposição à radiação."
+label_settings = SubResource("LabelSettings_i4whw")
+autowrap_mode = 3
+
+[node name="Começar" type="TextureButton" parent="CanvasLayer" unique_id=1984858305]
+offset_left = 855.0
+offset_top = 538.0
+offset_right = 1600.0
+offset_bottom = 788.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("3_0cmkd")
+texture_pressed = ExtResource("4_mm23g")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=2067992025]
+position = Vector2(223, 358)
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("5_lajj8")
+
+[node name="FadeRect" type="ColorRect" parent="CanvasLayer" unique_id=2113305286]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[connection signal="button_down" from="CanvasLayer/Começar" to="." method="_on_começar_button_down"]

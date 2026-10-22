@@ -6,6 +6,7 @@ func _ready() -> void:
 	if fade_rect:
 		# Permite que os cliques passem através do ColorRect transparente
 		fade_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	MusicManager.play_music(preload('res://musicas/menu.ogg'))
 
 func _on_começar_pressed() -> void:
 	fade_rect.mouse_filter = Control.MOUSE_FILTER_STOP

@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://c6ra5e2o63bet" path="res://sprites/cenarios/menu_selecao/pilastra1.png" id="4_oobe4"]
 [ext_resource type="Texture2D" uid="uid://bap0fytv1sta0" path="res://sprites/cenarios/menu_selecao/pilastra2.png" id="5_oaweh"]
 [ext_resource type="Texture2D" uid="uid://115tlu7ykd1r" path="res://sprites/cenarios/menu_selecao/pilastra3.png" id="6_p5pch"]
+[ext_resource type="Texture2D" uid="uid://u27lft7reou4" path="res://sprites/cenarios/tela_inicial/tela_inicial_botao_sep2.png" id="7_oaweh"]
+[ext_resource type="Texture2D" uid="uid://dusrndnw7wjwr" path="res://sprites/cenarios/tela_inicial/tela_inicial_botao_sep2_apagado.png" id="8_p5pch"]
 
 [node name="MenuSelecao" type="Node2D" unique_id=422613273]
 
@@ -16,11 +18,11 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_7ggnl")
 
-[node name="ColorRect" type="ColorRect" parent="Menuzin" unique_id=2045706096]
+[node name="Fundo" type="ColorRect" parent="Menuzin" unique_id=2045706096]
 layout_mode = 0
 offset_right = 1157.0
 offset_bottom = 653.0
-color = Color(0.9702293, 0.93304676, 0.7767085, 1)
+color = Color(0.8640347, 0.6890579, 0.49416667, 1)
 
 [node name="chao" type="Sprite2D" parent="Menuzin" unique_id=1603707548]
 position = Vector2(589.74994, 282.00003)
@@ -28,8 +30,8 @@ scale = Vector2(1.1508789, 1.0058594)
 texture = ExtResource("2_2kh85")
 
 [node name="quadro" type="Sprite2D" parent="Menuzin" unique_id=2064419263]
-position = Vector2(175, 229)
-scale = Vector2(0.41, 0.41)
+position = Vector2(555, 357)
+scale = Vector2(0.95650387, 0.833457)
 texture = ExtResource("3_bhu4j")
 
 [node name="Level 1" type="TextureButton" parent="Menuzin" unique_id=491926895]
@@ -64,6 +66,17 @@ texture_normal = ExtResource("6_p5pch")
 ignore_texture_size = true
 stretch_mode = 3
 
+[node name="Sair" type="TextureButton" parent="Menuzin" unique_id=1845500478]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 25.00003
+offset_right = 787.0
+offset_bottom = 281.00003
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("7_oaweh")
+texture_pressed = ExtResource("8_p5pch")
+
 [connection signal="pressed" from="Menuzin/Level 1" to="Menuzin" method="_on_level_1_pressed"]
 [connection signal="pressed" from="Menuzin/Level 2" to="Menuzin" method="_on_level_2_pressed"]
 [connection signal="pressed" from="Menuzin/Level 3" to="Menuzin" method="_on_level_3_pressed"]
+[connection signal="button_up" from="Menuzin/Sair" to="Menuzin" method="_on_sair_button_up"]

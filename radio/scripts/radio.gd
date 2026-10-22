@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var bullet_scene := preload("res://cenas/objs/bala.tscn")
 
 @export var fire_rate := 0.7
-@export var bullet_speed: float = 800.0
+@export var bullet_speed: float = 600.0
 var shoot_timer := 0.0
 
 # Sinal emitido ao alterar a vida
